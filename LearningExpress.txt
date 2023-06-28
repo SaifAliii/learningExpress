@@ -1,0 +1,25 @@
+Express:
+	1.	Why to use Express instead of Node:
+		1.	Provides Readability
+		2.	Less Code
+		3. 	Middle Ware
+	2.	To Get use app.get(location, callback function having two parameters 1 is request other is responce)
+			To send data to a browser use response.send(something)
+				something can be plain text like "Hello" or html like "<h1>Hello</h1>"
+			To send file to a browser use response.sendFile(filepath)
+				while specifying file path always use __dirname(2underscores then dirname), it will give
+				the current path of the directory like sendFile(__dirname + "/index.html")			
+	3.	To get data of file on server side you need a package name body parser so intsall it
+		using command npm i body-parser
+			it works with express and have several modes
+			you can use it as app.use(mode)
+				mode1.	bodyParser.text
+				mode2.	bodyParser.json
+				mode3.	bodyParser.urlencoded --> to parse data that comes from an html page 
+					you can use option extended: true like app.use(bodyParser.urlencoded({extended: true}))
+	4.	to perform calculations on data from html page use app.post(location, callback function(same as GET))
+			req.body will give you all the data from the html page and you can access them by dot notation
+				req.body.variableName (by default it is text)
+				to type cast it in number use Number(req.body.var)
+	5.	The problem is that you have to restart server every time you change something
+			The solution is install nodemon using command "npm install -g nodemon"
